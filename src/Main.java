@@ -1,13 +1,31 @@
-import java.util.Arrays;
+import java.util.*;
 import static net.mindview.util.Print.*;
 import static net.mindview.util.Range.*;
 
 
-public class Main {
+public class Main
+{
+    public static char findMissingLetter(char[] array)
+    {
+        char result = ' ';
+        int count = array[0];
+        for (int i = 0; i < array.length; i++) {
+
+            if(count == (int)array[i]) {
+                count += 1;
+            }
+            else {
+                result = (char)count;
+            }
+
+        }
+
+        return result;
+    }
+
     public static void main(String[] args) {
-        int[] nums = range(5);
-        int[] numsStartEnd = range(10, 20);
-        int[] numsStartEndStep = range(100, 150, 2);
-        print(Arrays.toString(numsStartEndStep));
+        char[] a = {'O','Q','R','S'};
+        char c = findMissingLetter(a);
+        System.out.println(c);
     }
 }
