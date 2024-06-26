@@ -1,10 +1,9 @@
 package kata;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class textMod {
-    public static void textModifer() {
+    public static void textModifier() {
 //        Scanner scan = new Scanner(System.in);
 //        String[] arr = scan.nextLine().split(" ");
         String str = "генрих1  играет+2   л-июбит0школу";
@@ -17,7 +16,7 @@ public class textMod {
     }
 
     public static void main(String[] args) {
-        textModifer();
+        textModifier();
     }
 
     public static StringBuilder getSum(String string) {
@@ -31,15 +30,15 @@ public class textMod {
             }
         }
 
-        if(total != 0) sb.append(" " + total);
+        if(total != 0) sb.append(" ").append(total);
 
         return sb;
     }
 
     public static StringBuilder deleteMinus(StringBuilder s, String sign) {
         char[] chars = new char[3];
-        int idx = 0;
-        String result = "";
+        int idx;
+        String result;
 
         while((idx = s.indexOf(sign)) != -1) {
             s.getChars(idx-1, idx+2, chars, 0);
@@ -65,9 +64,9 @@ public class textMod {
 
     public static String deleteSpace(String[] arr) {
         ArrayList<String> result = new ArrayList<>();
-        for (int i = 0; i < arr.length; i++) {
-            if(!arr[i].isBlank()) {
-                result.add(arr[i].strip());
+        for (String s : arr) {
+            if (!s.isBlank()) {
+                result.add(s.strip());
             }
         }
         return String.join(" ", result);
