@@ -1,54 +1,73 @@
 package kata;
 
-import java.util.Arrays;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 public class kataTest {
 
     public static void main(String[] args) {
-        String [] roles = {"Городничий", "Аммос Федорович", "Артемий Филиппович", "Лука Лукич", "Лука"};
-        String[] textLines = {"Городничий: Я пригласил вас, господа, с тем, чтобы сообщить вам пренеприятное известие: к нам едет ревизор.",
-                "Аммос Федорович: Как ревизор?",
-                "Артемий Филиппович: Как ревизор?",
-                "Городничий: Ревизор из Петербурга, инкогнито. И еще с секретным предписаньем.",
-                "Аммос Федорович: Вот те на!",
-                "Артемий Филиппович: Вот не было заботы, так подай!",
-                "Лука Лукич: Господи боже! еще и с секретным предписаньем!"};
+        String[] days = new String[]{"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
 
-        System.out.println(printTextPerRole(roles, textLines));;
+        System.out.println(weekdayCount(days));
+
+
     }
 
-    public static String printTextPerRole(String[] roles, String[] textLines) {
-        StringBuilder result = new StringBuilder();
+    public static boolean isWeekend(String dayName) {
+        return (dayName.equals("Saturday") || (dayName.equals("Sunday")))
+                ? true
+                : false;
+    }
 
-        for (int i = 0; i < roles.length; i++) {
-            result.append(roles[i] + ":" + "\n");
-//            System.out.println(roles[i] + ":");
+    public static int weekendCount(String[] days) {
+        int count = 0;
 
-            for (int j = 0; j < textLines.length; j++) {
-                if (textLines[j].startsWith(roles[i] + ":")) {
-                    StringBuilder sb = new StringBuilder(textLines[j]);
-                    StringBuilder sub = new StringBuilder(sb.substring(roles[i].length())).replace(0, 1, "");
-                    result.append((j + 1) + ")" + sub + "\n");
-                }
-
+        for (String day : days) {
+            if (isWeekend(day)) {
+                count++;
             }
-
-            result.append("\n");
-
         }
-        return new String(result);
+        return count;
+    }
+
+    public static int weekdayCount(String[] days) {
+        return days.length - weekendCount(days);
     }
 
 
-    public static boolean isGmailOrOutlook(String email) {
 
-        Pattern pattern = Pattern.compile("[a-zA-Z0-9]{1,}@(gmail.com|outlook.com)");
-        Matcher matcher = pattern.matcher(email);
-        boolean found = matcher.matches();
 
-        return (found) ? true : false;
+//    public static String printTextPerRole(String[] roles, String[] textLines) {
+//        StringBuilder result = new StringBuilder();
+//
+//        for (int i = 0; i < roles.length; i++) {
+//            result.append(roles[i] + ":" + "\n");
+////            System.out.println(roles[i] + ":");
+//
+//            for (int j = 0; j < textLines.length; j++) {
+//                if (textLines[j].startsWith(roles[i] + ":")) {
+//                    StringBuilder sb = new StringBuilder(textLines[j]);
+//                    StringBuilder sub = new StringBuilder(sb.substring(roles[i].length())).replace(0, 1, "");
+//                    result.append((j + 1) + ")" + sub + "\n");
+//                }
+//
+//            }
+//
+//            result.append("\n");
+//
+//        }
+//        return new String(result);
+//    }
 
-    }
+
+//    public static boolean isGmailOrOutlook(String email) {
+//
+//        Pattern pattern = Pattern.compile("[a-zA-Z0-9]{1,}@(gmail.com|outlook.com)");
+//        Matcher matcher = pattern.matcher(email);
+//        boolean found = matcher.matches();
+//
+//        return (found) ? true : false;
+//
+//    }
 }
