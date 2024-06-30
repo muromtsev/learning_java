@@ -7,33 +7,33 @@ import java.util.Set;
 public class kataTest {
 
     public static void main(String[] args) {
-        String[] days = new String[]{"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
 
-        System.out.println(weekdayCount(days));
 
 
     }
 
-    public static boolean isWeekend(String dayName) {
-        return (dayName.equals("Saturday") || (dayName.equals("Sunday")))
-                ? true
-                : false;
-    }
 
-    public static int weekendCount(String[] days) {
-        int count = 0;
 
-        for (String day : days) {
-            if (isWeekend(day)) {
-                count++;
-            }
-        }
-        return count;
-    }
-
-    public static int weekdayCount(String[] days) {
-        return days.length - weekendCount(days);
-    }
+//    public static boolean isWeekend(String dayName) {
+//        return (dayName.equals("Saturday") || (dayName.equals("Sunday")))
+//                ? true
+//                : false;
+//    }
+//
+//    public static int weekendCount(String[] days) {
+//        int count = 0;
+//
+//        for (String day : days) {
+//            if (isWeekend(day)) {
+//                count++;
+//            }
+//        }
+//        return count;
+//    }
+//
+//    public static int weekdayCount(String[] days) {
+//        return days.length - weekendCount(days);
+//    }
 
 
 
