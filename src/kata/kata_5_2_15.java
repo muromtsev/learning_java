@@ -9,7 +9,7 @@ public class kata_5_2_15 {
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
-        Deque dal = new ArrayDeque();
+        Deque<Integer> dal = new ArrayDeque<>();
 
         while (scan.hasNextInt()) {
             scan.next();
@@ -19,16 +19,9 @@ public class kata_5_2_15 {
             }
         }
 
-        Iterator iterator = dal.iterator();
-        StringBuilder sb = new StringBuilder();
-
-        while (iterator.hasNext()) {
-            sb.append(iterator.next());
-            sb.append(" ");
+        for (Integer i : dal ) {
+            System.out.print(i + " ");
         }
-
-        sb.deleteCharAt(sb.length() - 1);
-        System.out.println(sb.toString());
 
     }
 }
